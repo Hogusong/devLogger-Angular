@@ -38,7 +38,7 @@ export class LogFormComponent implements OnInit {
     } else {
       this.logService.updateLog({id: this.id, text: this.text, date: new Date()});
     }
-    this.onClear()
+    this.clearState()
   }
 
   generateUUID(){
@@ -48,9 +48,10 @@ export class LogFormComponent implements OnInit {
     });
   }
 
-  onClear() {
+  clearState() {
     this.id = '';
     this.text = '';
     this.isNew = true;
+    this.logService.clearState();
   }
 }
